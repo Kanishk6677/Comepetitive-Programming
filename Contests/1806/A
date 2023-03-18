@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+void solve()
+{
+ long long a, b, c, d;
+        cin >> a >> b >> c >> d;
+        if(d<b)
+        {
+            cout<<-1<<endl;
+            return ;
+        }
+        long long a1,target;
+        target=a+d-b;
+        if(target<c)
+        {
+            cout<<-1<<endl;
+            return ;
+        }
+        a1=(d-b)+abs(target-c);
+        cout<<a1<<endl;
+}
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+       solve();
+    }
+
+    return 0;
+}
