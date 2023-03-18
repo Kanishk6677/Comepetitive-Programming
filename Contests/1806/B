@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+
+
+int main() {
+    long long t;
+    cin >> t;
+    while(t--) {
+      long long n;
+      cin>>n;
+      map<long long,long long>storage;
+      vector<long long> v(n);
+      long long count_of_zero=0,count_of_nonzeroandnonone=0,no_count_of_zero=0;
+      for(long long i=0;i<n;i++)
+      {
+          cin>>v[i];
+
+
+          if(v[i]==0)
+          
+           count_of_zero++;
+          else  
+
+
+
+
+
+
+
+
+          {
+              no_count_of_zero++;
+              storage[v[i]]++;
+              
+              
+              if(v[i]!=1) count_of_nonzeroandnonone++;
+          }
+          // maqintaing all the count of zeroes
+      }
+      if(count_of_zero>=(no_count_of_zero+2))
+      {
+          if(storage.find(1)==storage.end()) cout<<1<<endl; // isme 1 nai tha
+          else if(count_of_nonzeroandnonone>0) cout<<1<<endl; // mtlb 1 nai tha 
+          else cout<<2<<endl;
+      }  
+
+// if no one then it will be 0 only
+
+
+
+      else cout<<0<<endl;
+    }
+    return 0;
+}
