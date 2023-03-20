@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+void solve(){
+    long long n;
+    cin>>n;
+    string s;
+    cin>>s;
+    map<char,long long> storage; // map for storing indexes so that we can calcualte the tarernce between indexes
+    for(long long i=0;i<n;i++){
+        if(storage.find(s[i])== storage.end())
+        {
+            storage[s[i]]=i;
+        }
+        else
+        {
+            long long tar = i-storage[s[i]];
+            if(tar%2!=0)
+            {
+                cout<<"NO"<<endl;
+                return;
+            }
+            storage[s[i]]=i;
+        }
+    }
+    cout<<"YES"<<endl;
+}
+int main(){
+    long long t;
+    cin>>t;
+    while(t--){
+        solve();
+    }
+}
