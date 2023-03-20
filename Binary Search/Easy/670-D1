@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define int long long
+bool check(int cnt,vector<int>&a,vector<int>&b,int k)
+{
+    int total=0;
+    for(int i=0;i<a.size();i++)
+    {
+        int need=a[i]*cnt;
+        if(b[i]>=need) continue;
+        k-=a[i]*cnt-b[i];
+        if(k<0) return false;
+    }
+    return true;
+}
+signed main()
+{
+    int n,k;
+    cin>>n>>k;
+    vector<int>a(n),b(n);
+    for(int i=0;i<n;i++) cin>>a[i];
+     for(int i=0;i<n;i++) cin>>b[i];
+     int lo=0;
+     int hi=100000;
+     while(lo<=hi)
+     {
+         int mid=(hi+lo)/2;
+         if(check(mid,a,b,k))
+         {
+             lo=mid+1;
+         }
+         else
+         {
+             hi=mid-1;
+         }
+     }
+     cout<<lo-1;
+    return 0;
+}
